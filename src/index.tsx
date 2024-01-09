@@ -215,7 +215,7 @@ function Root({
       const isDraggingDown = draggedDistance > 0;
 
       // Disallow dragging down to close when first snap point is the active one and dismissible prop is set to false.
-      if (snapPoints && activeSnapPointIndex === 0 && !dismissible) return;
+      if (snapPoints && activeSnapPointIndex === 0 && !dismissible && !isDraggingDown) return;
 
       if (!isAllowedToDrag.current && !shouldDrag(event.target, isDraggingDown)) return;
       drawerRef.current.classList.add(DRAG_CLASS);
